@@ -25,7 +25,9 @@ buildscript {
             exclude group: 'org.ow2.asm', module: 'asm-debug-all'
         }
 
-        classpath 'com.github.yunfanjiang:ForgeGradle:FG_2.2_patched-SNAPSHOT'
+        // classpath 'com.github.yunfanjiang:ForgeGradle:FG_2.2_patched-SNAPSHOT'
+        // the above path does not work with jitpack.io for whatever the reason..
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2.2'
     }
     configurations {
         compileClasspath {
@@ -45,7 +47,9 @@ plugins {
 }
 
 dependencies {
-    implementation 'com.github.yunfanjiang:ForgeGradle:FG_2.2_patched-SNAPSHOT'
+    // implementation 'com.github.yunfanjiang:ForgeGradle:FG_2.2_patched-SNAPSHOT'
+    // the above path does not work with jitpack.io for whatever the reason..
+    implementation 'net.minecraftforge.gradle:ForgeGradle:2.2.2'
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
