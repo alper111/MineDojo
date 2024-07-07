@@ -15,18 +15,18 @@ from .inventory import (
 
 class CMDExecutor:
     logger = logging.getLogger("cmd_executor")
-    valid_cmds = {
-        "summon",
-        "kill",
-        "time",
-        "weather",
-        "replaceitem",
-        "tp",
-        "clear",
-        "setblock",
-        "spreadplayers",
-        "gamemode"
-    }
+    # valid_cmds = {
+    #     "summon",
+    #     "kill",
+    #     "time",
+    #     "weather",
+    #     "replaceitem",
+    #     "tp",
+    #     "clear",
+    #     "setblock",
+    #     "spreadplayers",
+    #     "gamemode"
+    # }
 
     def __init__(self, world, raise_error_on_invalid_cmds: bool = False):
         # avoid circular import
@@ -37,7 +37,8 @@ class CMDExecutor:
         self._world_action_space = world.action_space
 
     def execute_cmd(self, cmd: str, action: Optional[dict] = None):
-        if (not cmd.startswith("/")) or (cmd.split()[0][1:] not in self.valid_cmds):
+        # if (not cmd.startswith("/")) or (cmd.split()[0][1:] not in self.valid_cmds):
+        if (not cmd.startswith("/")):
             if not self._raise_error_on_invalid_cmds:
                 self.logger.warning(f"Invalid cmd {cmd}, skipping...")
                 if action is None:
